@@ -1,0 +1,7 @@
+Genoma: genoma_tamanho_800
+Tamanho original: 800
+Tamanho reconstruído: 800
+Read: 30, k-mer: 15
+Cobertura: 1.0, Temperatura: 0
+Similaridade: 100.00%
+Tempo: 0.0150 segundos

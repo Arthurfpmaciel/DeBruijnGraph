@@ -1,0 +1,6 @@
+Genoma: genoma_escherichia_phage
+Tamanho original: 5386
+Tamanho reconstruído: 5386
+Read: 40, k-mer: 20
+Cobertura: 1.0, Temperatura: 0
+Tempo: 1.2065 segundos
