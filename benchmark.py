@@ -21,7 +21,7 @@ def rodar_benchmark():
 
         for tamanho in tamanhos:
             genoma = manager.gerar_genoma(tamanho)
-            read_size = max(8, int(tamanho * 0.3))
+            read_size = max(4, min(100, min(tamanho, int(tamanho * 0.1))))
             k = max(4, int(read_size * 0.5))
             cobertura = 1.0
             temperatura = 0

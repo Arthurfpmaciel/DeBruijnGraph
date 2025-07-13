@@ -27,17 +27,17 @@ def main():
                 print(" Arquivo de genoma não encontrado.")
                 return
             genoma = Utils.ler_arquivo(caminho)
-            read_size = 40
-            k = 20
-            cobertura = 1.0
-            temperatura = 0
+            read_size = 120
+            k = 80
+            cobertura = 0.7
+            temperatura = 10
             nome_base = os.path.splitext(nome_arq)[0]
 
         elif escolha == '2':
             nome_arq = "genoma_tamanho_8.txt"
             caminho = os.path.join("data", nome_arq)
             genoma = Utils.ler_arquivo(caminho)
-            read_size = 8
+            read_size = 5
             k = 4
             cobertura = 1.0
             temperatura = 0
@@ -47,8 +47,8 @@ def main():
             nome_arq = "genoma_tamanho_80.txt"
             caminho = os.path.join("data", nome_arq)
             genoma = Utils.ler_arquivo(caminho)
-            read_size = 80
-            k = 7
+            read_size = 20
+            k = 8
             cobertura = 1.0
             temperatura = 0
             nome_base = os.path.splitext(nome_arq)[0]
@@ -57,8 +57,8 @@ def main():
             nome_arq = "genoma_tamanho_800.txt"
             caminho = os.path.join("data", nome_arq)
             genoma = Utils.ler_arquivo(caminho)
-            read_size = 30
-            k = 15
+            read_size = 60
+            k = 50
             cobertura = 1.0
             temperatura = 0
             nome_base = os.path.splitext(nome_arq)[0]
@@ -67,8 +67,8 @@ def main():
             nome_arq = "genoma_tamanho_8000.txt"
             caminho = os.path.join("data", nome_arq)
             genoma = Utils.ler_arquivo(caminho)
-            read_size = 800
-            k = 20
+            read_size = 100
+            k = 50
             cobertura = 1.0
             temperatura = 0
             nome_base = os.path.splitext(nome_arq)[0]
@@ -77,8 +77,8 @@ def main():
             nome_arq = "genoma_tamanho_80000.txt"
             caminho = os.path.join("data", nome_arq)
             genoma = Utils.ler_arquivo(caminho)
-            read_size = 60
-            k = 30
+            read_size = 80
+            k = 40
             cobertura = 1.0
             temperatura = 0
             nome_base = os.path.splitext(nome_arq)[0]
