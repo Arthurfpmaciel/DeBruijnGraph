@@ -6,7 +6,7 @@ from src.gerenciador import Gerenciador_de_Genomas
 
 # Função para rodar o benchmark de reconstrução genômica
 def rodar_benchmark():
-    tamanhos = [8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 80000]
+    tamanhos = [8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536]
     resultados_path = "resultados/benchmark/benchmark_reconstrucao.txt"
     os.makedirs("resultados", exist_ok=True)
     manager = Gerenciador_de_Genomas()
@@ -63,7 +63,7 @@ def plotar_graficos(tamanhos, tempos, ks):
     plt.xscale("log")
     plt.yscale("log")
     plt.grid(True)
-    
+
     plt.subplot(1, 2, 2)
     plt.bar([str(t) for t in tamanhos], ks, color='orange')
     plt.title("Tamanho da Amostra vs Valor de k Usado", fontsize=16)
