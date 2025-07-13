@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from src.pipeline import executar_reconstrucao_genomica
 from src.gerenciador import Gerenciador_de_Genomas
 
+# Função para rodar o benchmark de reconstrução genômica
 def rodar_benchmark():
     tamanhos = [8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 80000]
     resultados_path = "resultados/benchmark/benchmark_reconstrucao.txt"
@@ -50,10 +51,10 @@ def rodar_benchmark():
 
     return tamanhos_genomas, tempos_execucao, ks_usados
 
+# Função para plotar os gráficos do benchmark
 def plotar_graficos(tamanhos, tempos, ks):
     plt.figure(figsize=(15, 8))
 
-    # Gráfico 1: Tempo vs Tamanho da Amostra (log-log)
     plt.subplot(1, 2, 1)
     plt.plot(tamanhos, tempos, marker='o', color='blue', linewidth=2)
     plt.title("Tempo de Execução vs Tamanho da Amostra\n(k = 50% do read)", fontsize=16)
@@ -62,8 +63,7 @@ def plotar_graficos(tamanhos, tempos, ks):
     plt.xscale("log")
     plt.yscale("log")
     plt.grid(True)
-
-    # Gráfico 2: Tamanho vs Valor de k
+    
     plt.subplot(1, 2, 2)
     plt.bar([str(t) for t in tamanhos], ks, color='orange')
     plt.title("Tamanho da Amostra vs Valor de k Usado", fontsize=16)

@@ -4,7 +4,10 @@ from src.utils import Utils
 from src.grafo import *
 
 manager = Gerenciador_de_Genomas()
-
+# executar a reconstrução do genoma a partir dos reads
+# genoma: string do genoma original
+# tamanho_read: tamanho dos reads a serem gerados
+# k: tamanho do k-mer
 def executar_reconstrucao_genomica(genoma, tamanho_read, k, cobertura=1.0, temperatura=0, salvar_resultados=False, nome_base="teste"):
     start = time.time()
     print(f"Tamanho do Genoma Original: {len(genoma)}")
@@ -30,9 +33,9 @@ def executar_reconstrucao_genomica(genoma, tamanho_read, k, cobertura=1.0, tempe
 
         if salvar_resultados:
             imagem_path = f"resultados/imagens/{nome_base}_grafo.png"
-            txt_path = f"resultados/{nome_base}_reconstruido.txt"
-            relatorio_path = f"resultados/{nome_base}_relatorio.txt"
-
+            txt_path = f"resultados/genoma_reconstruido/{nome_base}_reconstruido.txt"
+            relatorio_path = f"resultados/relatorio/{nome_base}_relatorio.txt"
+            print("Desenhando Grafo e salvando resultado...")
             desenhar_grafo(grafo, caminho_saida=imagem_path)
             Utils.salvar_arquivo(genoma_reconstruido, txt_path)
 
@@ -40,7 +43,7 @@ def executar_reconstrucao_genomica(genoma, tamanho_read, k, cobertura=1.0, tempe
             relatorio = (
                 f"Genoma: {nome_base}\n"
                 f"Tamanho original: {len(genoma)}\n"
-                f"Tamanho reconstruído: {len(genoma_reconstruido)}\n"
+                f"Tamanho reconstruido: {len(genoma_reconstruido)}\n"
                 f"Read: {tamanho_read}, k-mer: {k}\n"
                 f"Cobertura: {cobertura}, Temperatura: {temperatura}\n"
                 f"Similaridade: {similaridade:.2%}\n"

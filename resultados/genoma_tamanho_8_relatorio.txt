@@ -1,7 +1,0 @@
-Genoma: genoma_tamanho_8
-Tamanho original: 8
-Tamanho reconstruído: 8
-Read: 8, k-mer: 4
-Cobertura: 1.0, Temperatura: 0
-Similaridade: 100.00%
-Tempo: 0.0010 segundos

@@ -1,6 +1,8 @@
 import networkx as nx
 import matplotlib.pyplot as plt
+import math
 
+# gerar o grafo de De Bruijn a partir dos k-mers
 def gerar_grafo_de_DeBruijn(kmers):
     Graph = nx.DiGraph()
     Graph.add_nodes_from(kmers)
@@ -12,10 +14,13 @@ def gerar_grafo_de_DeBruijn(kmers):
                 Graph.add_edge(kmers[i], kmers[j])
     return Graph
 
+# visualizar o grafo de De Bruijn e salvar como imagem
 def desenhar_grafo(grafo, nome="Grafo de De Bruijn", caminho_saida=None):
     pos = nx.spring_layout(grafo)
-    plt.figure(figsize=(8, 6))
-    
+    largura = max(8, min(0.5 * len(grafo.nodes), 30))
+    altura = max(6, min(0.5 * len(grafo.nodes), 30))
+    plt.figure(figsize=(largura, altura))
+
     labels_encurtados = {}
     for node in grafo.nodes():
         if len(node) > 8:
@@ -46,9 +51,11 @@ def desenhar_grafo(grafo, nome="Grafo de De Bruijn", caminho_saida=None):
 
     plt.close()
 
+# verificar se o grafo tem caminho euleriano
 def tem_caminho_euleriano(grafo):
     return nx.has_eulerian_path(grafo)
 
+# obter o caminho euleriano do grafo
 def obter_caminho_euleriano(grafo):
     caminho_arestas = list(nx.eulerian_path(grafo))
     caminho = [a[0] for a in caminho_arestas] + [caminho_arestas[-1][1]]

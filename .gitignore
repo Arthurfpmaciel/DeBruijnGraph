@@ -1,2 +1,5 @@
 venv/
 base_project/
+teste.ipynb
+*__pycache__/
+test_data/

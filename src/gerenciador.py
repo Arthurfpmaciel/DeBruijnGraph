@@ -5,11 +5,15 @@ class Gerenciador_de_Genomas:
     def __init__(self):
         self.bases = ['A', 'C', 'G', 'T']
 
+    # gerar um genoma aleatório de tamanho especificado
     def gerar_genoma(self,tamanho, random_state=None):
         random.seed(random_state)
         genoma = ''.join(random.choice(self.bases) for _ in range(tamanho))
         return genoma
-
+    # gerar reads a partir do genoma
+    # tamanho_read: tamanho dos reads a serem gerados
+    # cobertura: porcentagem das reads existentes que serão retornadas
+    # temperatura: variação no tamanho dos reads
     def gerar_reads(self,genoma, tamanho_read, cobertura=1.0,temperatura=0,random_state=None):
         reads_totais = [genoma[i:i+random.choice(range(tamanho_read-temperatura,tamanho_read+temperatura+1))]
                         for i in range(len(genoma)-tamanho_read+1)]
@@ -17,7 +21,8 @@ class Gerenciador_de_Genomas:
         random.seed(random_state)
         reads_cobertos = random.sample(reads_totais,numero_de_reads)
         return reads_cobertos
-    
+    # gerar k-mers a partir dos reads
+    # k: tamanho do k-mer
     def gerar_kmers(self, reads, k):
         kmers = set()
         for read in reads:
@@ -25,7 +30,7 @@ class Gerenciador_de_Genomas:
                 kmear = read[i:i + k]
                 kmers.add(kmear)
         return list(kmers)
-    
+    # reconstruir o genoma a partir do caminho euleriano
     def reconstruir_genoma(self,caminho_euleriano):
         k = len(caminho_euleriano[0])
         novo_genoma = ""
@@ -35,7 +40,7 @@ class Gerenciador_de_Genomas:
             else:
                 novo_genoma += caminho_euleriano[i][k-1:]
         return novo_genoma
-    
+    # comparar dois genomas e retornar a similaridade
     def comparar_genomas(self,genoma1, genoma2):
         count = 0
         for i in range(len(genoma1)):
